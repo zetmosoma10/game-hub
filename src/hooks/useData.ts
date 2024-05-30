@@ -30,7 +30,8 @@ const useData = <T>(
           setIsLoading(false);
         })
         .catch((err) => {
-          if (err instanceof CanceledError) setError(err.message);
+          if (err instanceof CanceledError) return;
+          setError(err.message);
           setIsLoading(false);
         });
 
